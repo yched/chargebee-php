@@ -17,6 +17,7 @@ class Environment
 
     public static $timeMachineWaitInSecs = 3;
     public static $exportWaitInSecs = 3;
+    public static $guzzleHandler;
 
     const API_VERSION = "v2";
 
@@ -71,5 +72,10 @@ class Environment
     {
         self::$requestTimeoutInSecs = $requestTimeout;
 
+    }
+
+    public static function updateGuzzleHandler($handler)
+    {
+        self::$guzzleHandler = $handler;
     }
 }

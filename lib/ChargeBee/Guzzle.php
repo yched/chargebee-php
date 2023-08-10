@@ -38,6 +38,9 @@ class Guzzle
             'allow_redirects' => true,
             'http_errors' => false
         );
+        if (null != Environment::$guzzleHandler) {
+            $opts['handler'] = Environment::$guzzleHandler;
+        }
         if ($meth == Request::GET) {
             if (count($params) > 0) {
                 $opts['query'] = $params;
